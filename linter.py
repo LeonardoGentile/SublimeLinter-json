@@ -33,9 +33,8 @@ class JSON(Linter):
     def run(self, cmd, code):
         """Attempt to parse code as JSON, return '' if it succeeds, the error message if it fails."""
 
-
         # Use ST's loose parser for its setting files.
-        strict = self.settings().get('strict', os.path.splitext(self.filename)[1] not in self.extensions)
+        strict = self.s.get('strict')
 
         if strict:
             exceptions = self.s.get('strict_exceptions')
